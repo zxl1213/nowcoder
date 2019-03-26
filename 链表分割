@@ -24,14 +24,18 @@
 		  node=node->next;
 		}
 		if(smalllast!=NULL){
+		//如果比x小的链表有结点,则把两个链表连起来
 		  smalllast->next=big;
 		}
 		if(biglast!=NULL){
+		//如果比x大的链表有结点,则最后一个结点->next=NULL
 		  biglast->next=NULL;
 		}
 		if(smalllast!=NULL){
+		//有小的,从小的返回
 		  return small;
 		}else{
+		//否则从大的返回
 		  return big;
 		 }
 		
