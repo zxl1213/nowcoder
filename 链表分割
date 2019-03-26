@@ -1,0 +1,38 @@
+    ListNode* partition(ListNode* pHead, int x) {
+
+		ListNode* small=NULL;
+		ListNode* smalllast=NULL;
+		ListNode* big=NULL;
+		ListNode* biglast=NULL;
+		ListNode* node=pHead;
+		while(node!=NULL){
+		  if(node->val<x){
+		    if(small==NULL){
+			  small=smalllast=node;
+			}else{
+			  smalllast->next=node;
+			  smalllast=node;
+			}
+		  }else{ 
+		      if(big==NULL){
+			  big=biglast=node;
+			}else{
+			  biglast->next=node;
+			  biglast=node;
+			}  
+		  }
+		  node=node->next;
+		}
+		if(smalllast!=NULL){
+		  smalllast->next=big;
+		}
+		if(biglast!=NULL){
+		  biglast->next=NULL;
+		}
+		if(smalllast!=NULL){
+		  return small;
+		}else{
+		  return big;
+		 }
+		
+    }
