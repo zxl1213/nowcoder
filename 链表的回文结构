@@ -1,0 +1,72 @@
+/*
+struct ListNode {
+    int val;
+    struct ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};*/
+class PalindromeList {
+public:
+
+	ListNode* middleNode(ListNode* head) {
+		if (head == NULL) {
+			return NULL;
+		}
+		ListNode *fast = head;
+		ListNode *slow = head;
+
+		while (1) {
+			fast = fast->next;
+			if (fast == NULL) {
+				break;
+			}
+			slow = slow->next;
+			fast = fast->next;
+			if (fast == NULL) {
+				break;
+			}
+		}
+
+		return slow;
+	}
+
+	ListNode* reverseList(ListNode* head) {
+		if (head == NULL) {
+			return head;
+		}
+
+		ListNode *prev, *cur, *next;
+		prev = NULL;
+		cur = head;
+		next = head->next;
+
+		while (cur != NULL) {
+			cur->next = prev;
+
+			prev = cur;
+			cur = next;
+			if (next != NULL) {
+				next = next->next;
+			}
+		}
+
+		return prev;
+	}
+
+	bool chkPalindrome(ListNode* A) {
+		ListNode * middle = middleNode(A);
+		ListNode * r = reverseList(middle->next);
+
+		ListNode *n1 = A, *n2 = r;
+		while (n1 != NULL && n2 != NULL) {
+			if (n1->val != n2->val) {
+				return false;
+			}
+
+			n1 = n1->next;
+			n2 = n2->next;
+		}
+
+		return true;
+	}
+};
+    
