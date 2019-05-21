@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+  int ret=0;
+  int n;
+  cin>>n;
+  vector<int> q;
+  int s;
+  while(cin>>s){
+    q.push_back(s);
+  }
+  for(int i=1;i<n-1;++i){
+
+    if((q[i]>q[i-1]&&q[i+1]<q[i])
+      ||(q[i]<q[i-1]&&q[i+1]>q[i])){
+     if(n-3!=i)
+      ++ret;
+    }                                                                                                                                             
+  }
+  cout<<ret<<endl;
+  return 0;
+}
