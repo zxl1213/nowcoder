@@ -1,0 +1,28 @@
+#include <iostream>    
+using namespace std;    
+void Transform(int m,int n){    
+  if (m >= n){    
+    Transform(m/n, n);    
+  }    
+  char a='A';    
+  int yu = m%n;    
+  if(yu>=10){    
+    int i=yu-10;    
+    printf("%c",a+i);    
+  }else{    
+    cout << yu ;    
+  }    
+}    
+    
+int main(){    
+  int M, N;    
+  cin >> M>>N;    
+  if(M<=0){    
+    M=-M;    
+    cout<<"-";    
+  Transform(M, N);    
+  }else{    
+  Transform(M, N);                                                                                                                          
+  }
+  cout<<endl;
+}
