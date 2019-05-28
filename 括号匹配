@@ -1,0 +1,18 @@
+bool chkParenthesis(string A, int n) {    
+  std::stack<char> str;    
+  for(int i=0;i<n;++i){    
+    if (A[i] == '('){    
+      str.push(A[i]);    
+    }    
+    else if (A[i] == ')'){    
+      if(str.empty()){    
+        return false;    
+      }else    
+        str.pop();    
+    }    
+    else{    
+      return false;    
+    }    
+  }                                                                                                                                         
+  return str.empty();    
+}    
