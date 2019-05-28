@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+bool lengths(vector<string> v,int n){
+  int i=0;
+  while(v[i].size()<=v[i+1].size()){
+    ++i;
+    if(i==n-1){
+    return 1;
+    }
+  }
+return 0;
+}
+bool zidianxu(vector<string> v,int n){
+  int i=0;
+  while(v[i]<=v[i+1]){
+    ++i;
+    if(i==n-1){
+    return 1;
+    }
+  }
+return 0;
+}
+
+int main(){
+  int n;
+  string m;
+  vector<string> v;
+  cin>>n;
+  while(cin>>m){
+    v.push_back(m);
+  }
+  int l=lengths(v,n);
+  int z=zidianxu(v,n);
+  if(l==1&&z==1){
+    cout<<"both"<<endl;
+  }else if(l==1&&z==0){
+    cout<<"lengths"<<endl;                                                                                                                                                                                         
+  }else if(l==0&&z==1){
+   cout<<"lexicographically"<< endl;
+  } else if(l==0&&z==0){
+  cout<<"none"<<endl;
+  }
+}
