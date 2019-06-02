@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+bool Sushu(int num){
+    for(int i=2;i<num;++i){
+        if(num%i==0){
+         return false;
+        }
+    }
+    return true;
+}
+int main(){
+    int n;
+    while(cin>>n){
+    int a=n/2;
+    int b=n/2;
+    while(a>1||b<n){
+        if(Sushu(a)&&Sushu(b)){
+            break;
+        }
+        a--;
+        b++;
+    }
+    cout<<a<<endl;
+    cout<<b<<endl;
+    }
+}
