@@ -1,0 +1,33 @@
+#include <iostream>                                                                                                                     
+#include <vector>   
+using namespace std;
+int main(){         
+  string str,tmp="";
+  getline(cin,str);        
+  vector<string> v;
+  int i=0;                 
+  while(i<(int)str.size()){
+    if(str[i]=='"'){
+      i++;                                  
+      while(str[i]!='"'&&i<(int)str.size()){
+        tmp.append(str,i,1);
+        i++;
+      }                
+      v.push_back(tmp);
+      tmp="";
+      i++;
+    }                    
+    else if(str[i]!=' '){
+      while(str[i]!=' '&&i<(int)str.size()){
+        tmp.append(str,i,1);
+        i++;
+      }
+      v.push_back(tmp);
+      tmp="";
+      i++;
+    }
+  }
+  cout<<v.size()<<endl;
+  for (auto i:v)
+    cout<<i<<endl;
+}
