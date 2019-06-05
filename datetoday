@@ -1,0 +1,19 @@
+#include <iostream>                                                                                                                         
+using namespace std;    
+static int MonthDay[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };    
+int main(){    
+  int year, month, day;    
+  while (cin >> year >> month >> day){    
+    if(year>0&&month>0&&day>0&&day<MonthDay[month-1]){
+      int d =day; 
+      for (int i = 0; i < month; i++){    
+        d +=MonthDay[i-1];  
+      }
+      if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){    
+        d++;    
+      }    
+      cout << d << endl;   
+    }
+  }
+  return 0;
+}          
