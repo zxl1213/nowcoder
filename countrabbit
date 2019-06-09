@@ -1,0 +1,14 @@
+#include <iostream>                                                                                                                         
+using namespace std;    
+int Total(int month){    
+  if(month==1||month==2)    
+    return 1;    
+  else      
+    return Total(month-1)+Total(month-2);    
+}    
+int main(){    
+  int month;      
+  while(cin>>month){      
+    cout<<Total(month)<<endl;        
+  }    
+}        
