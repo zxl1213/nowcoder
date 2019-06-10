@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main(){
+    int kong;
+    while(cin>>kong){
+        int ret=0;
+        while(kong>=3){
+            ret+=kong/3;
+            kong=kong/3+kong%3;
+        }if(kong==2){
+            ret+=1;
+        }
+        cout<<ret<<endl;
+    }
+}
