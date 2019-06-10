@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+bool Check(string s1,string s2){
+  int i,j;
+  for(i=0,j=0;i<=(int)s1.size()&&j<=(int)s2.size();i++,j++){
+    if(s1[i]==s2[j]||s1[i]=='?'){
+      continue;
+    }else if(s1[i]=='*'){
+      if(i==(int)s1.size()){
+        return true;
+      }
+      i++;j++;
+      while(s1[i]!=s2[j]){
+        if(s1[i]=='?'){
+          i++;
+          j++;
+        }
+        if(j==(int)s2.size()){                                                                                                                                                                                     
+          return false;
+        }   continue;
+        j++;
+      }
+      continue;
+    }else if(s1[i]!=s2[j]){
+      return false;
+    }
+  }
+  return true;
+}
+int main(){
+  string s1,s2;
+  while(cin>>s1>>s2){
+    if(Check(s1,s2))
+      cout<<"true"<<endl;
+    else
+      cout<<"false"<<endl;
+  }
+}
