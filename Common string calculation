@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main(){
+	string min, max;
+	while(cin >> min >> max){
+            int ret=0;
+		if (min.size()>max.size())
+			swap(min, max);
+        for(int i=min.size();i>0;i--){
+            for(int j=0;j<=min.size();j++){
+                string tmp=min.substr(j,i);
+                if(max.find(tmp)!= -1&&tmp.size()>ret)
+                    ret=tmp.size();
+            }
+        }
+        cout<<ret<<endl;
+    }
+}
