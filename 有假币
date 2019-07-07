@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main(){
+        int coin,count;
+        while((cin>>coin)&&coin){
+                if(coin==1)
+                        cout<<0<<endl;
+                else if(coin==3||coin==2){
+                        cout<<1<<endl;
+                }else{
+                        count=1;
+                        while(coin>3){
+                                ++count;
+                                if(!(coin%3)) coin/=3;//细微之处需要格外注意
+                                else coin=coin/3+1;
+                        }
+                        cout<<count<<endl;
+                }
+        }
+}
